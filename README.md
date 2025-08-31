@@ -1,4 +1,4 @@
-# Orbit Flow
+# OrbitFlow
 
 > Seamless, adaptive multi-monitor screen sharing — **switch displays in a blink**, stay in sync when your setup changes.
 
@@ -9,7 +9,7 @@
 
 ---
 
-## ✨ Why Orbit Flow?
+## ✨ Why OrbitFlow?
 - 🔄 **Instant Monitor Switching** — Swap the shared screen with a hotkey, no stop-share required.
 - 🖥 **Multi-Monitor Awareness** — Live previews of all displays; pick and jump fast.
 - 🧭 **Auto Re-Sync on Layout Changes** — Move your laptop, dock/undock, rotate a screen — your share updates.
