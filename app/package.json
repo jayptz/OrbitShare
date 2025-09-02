@@ -1,0 +1,39 @@
+{
+  "name": "orbitshare-app",
+  "version": "1.0.0",
+  "description": "OrbitShare Desktop Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^37.4.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.orbitshare.app",
+    "productName": "OrbitShare",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
