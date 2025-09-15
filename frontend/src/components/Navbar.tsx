@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import { FaGithub } from "react-icons/fa6";
+import { GiConcentricCrescents } from "react-icons/gi";
+
 
 export default function Navbar() {
   return (
@@ -7,14 +10,15 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16 ">
           {/* Project Name */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold text-white hover:text-purple-700 transition-colors">
-              OrbitShare
+            <Link href="/" className="flex items-center space-x-2 text-xl font-bold text-white hover:text-purple-700 transition-colors">
+              <GiConcentricCrescents className="h-8 w-8" />
+              <span>OrbitShare</span>
             </Link>
           </div>
 
           {/* Navigation Links */}
           <div className="hidden md:block">
-            <div className="flex-end space-x-8">
+            <div className="flex items-center space-x-8">
               
               <Link href="/documentation" className="text-white hover:text-purple-700 px-3 py-2 text-sm font-medium transition-colors">
                 Documentation
@@ -32,8 +36,14 @@ export default function Navbar() {
               href="/signin" 
               className="text-gray-400 px-4 py-2 rounded-md text-sm font-medium transition-colors hover:text-purple-500"
             >
-              Sign in
+              Download
             </Link>
+
+            <Link href="https://github.com/jayptz/Orbitshare" className="text-white hover:text-purple-700 px-3 py-2 text-sm font-medium transition-colors" >
+              <FaGithub className="h-5 w-5" />
+            </Link>
+
+            
             </div>
           </div>
         </div>
