@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from 'next/link';
 import Navbar from "../components/Navbar";
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 
@@ -13,6 +14,12 @@ export default function Home() {
           </div>
           <div className="text-lg font-medium text-gray-300">
             <TypingAnimation duration={60}>Switching Screens, has never been easier.</TypingAnimation>
+          </div>
+          <div className="text-2xl font-light text-gray-400">
+            <Link href="/signup">
+              Sign Up
+            </Link>
+
           </div>
         </div>
       </div>
