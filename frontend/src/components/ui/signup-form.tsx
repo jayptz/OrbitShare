@@ -43,7 +43,7 @@ export function LoginForm({
         <div className="flex flex-col gap-6">
           <div className="flex flex-col items-center gap-2">
             <a href="/" className="flex items-center gap-2 font-medium text-white">
-              <span className="text-2xl font-bold">OrbitShare</span>
+              <span className="text-2xl font-bold">Orbit<span className="text-purple-600">Share</span></span>
             </a>
             <div className="text-center text-sm text-gray-300">
               Join OrbitShare and take control of your screens.
