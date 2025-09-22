@@ -216,7 +216,7 @@ export default function Galaxy({
   const smoothMouseActive = useRef(0.0);
 
   useEffect(() => {
-    if (!ctnDom.current) return;
+    if (!ctnDom.current || typeof window === 'undefined') return;
     const ctn = ctnDom.current;
     const renderer = new Renderer({
       alpha: transparent,

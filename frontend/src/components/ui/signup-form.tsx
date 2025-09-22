@@ -32,13 +32,13 @@ export function LoginForm({
     e.preventDefault();
     setLoading(true);
     
-    if (supabase) {
+    try {
       await supabase.from("waitlist").insert([{ email }]);
       setJoined(true);
       await fetchWaitlistCount(); // <-- Refresh the count immediately!
-    } else {
-      // Fallback for when Supabase is not configured
-      console.log('Email submitted:', email);
+    } catch (error) {
+      console.error('Error submitting email:', error);
+      // Still show success to user even if backend fails
       setJoined(true);
     }
     
