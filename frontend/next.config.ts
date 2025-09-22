@@ -1,9 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Enable static exports for better performance
-  output: 'standalone',
-  
   // Optimize images
   images: {
     unoptimized: true,
@@ -19,6 +16,14 @@ const nextConfig: NextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
     };
+    
+    // Handle OGL library properly
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      path: false,
+    };
+    
     return config;
   },
 };
