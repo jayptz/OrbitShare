@@ -31,10 +31,18 @@ export function LoginForm({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await supabase.from("waitlist").insert([{ email }]);
+    
+    if (supabase) {
+      await supabase.from("waitlist").insert([{ email }]);
+      setJoined(true);
+      await fetchWaitlistCount(); // <-- Refresh the count immediately!
+    } else {
+      // Fallback for when Supabase is not configured
+      console.log('Email submitted:', email);
+      setJoined(true);
+    }
+    
     setLoading(false);
-    setJoined(true);
-    await fetchWaitlistCount(); // <-- Refresh the count immediately!
   };
 
   return (
