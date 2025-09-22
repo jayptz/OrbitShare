@@ -23,7 +23,9 @@ export default function Home() {
         />
       </div>
       
-      <Navbar />
+      <div className="relative z-20">
+        <Navbar />
+      </div>
       <div className="relative z-10 flex items-center justify-center min-h-[calc(100vh-4rem)]">
         <div className="text-center">
           <div className="text-6xl font-bold text-white mb-6">
