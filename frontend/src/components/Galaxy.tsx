@@ -217,6 +217,9 @@ export default function Galaxy({
 
   useEffect(() => {
     if (!ctnDom.current || typeof window === 'undefined') return;
+    
+    // Additional safeguard to prevent TDZ issues
+    if (typeof document === 'undefined') return;
     const ctn = ctnDom.current;
     const renderer = new Renderer({
       alpha: transparent,
