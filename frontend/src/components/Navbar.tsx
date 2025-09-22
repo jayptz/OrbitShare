@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { FaGithub } from "react-icons/fa6";
 import { GiConcentricCrescents } from "react-icons/gi";
-import { IoDownloadOutline } from "react-icons/io5";
 import { IoMailSharp } from "react-icons/io5";
 
 
