@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { GalleryVerticalEnd } from "lucide-react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -42,9 +42,9 @@ export function LoginForm({
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-6">
           <div className="flex flex-col items-center gap-2">
-            <a href="/" className="flex items-center gap-2 font-medium text-white">
+            <Link href="/" className="flex items-center gap-2 font-medium text-white">
               <span className="text-2xl font-bold">Orbit<span className="text-purple-600">Share</span></span>
-            </a>
+            </Link>
             <div className="text-center text-sm text-gray-300">
               Join OrbitShare and take control of your screens.
             </div>
