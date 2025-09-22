@@ -28,7 +28,11 @@ const nextConfig: NextConfig = {
     config.optimization = {
       ...config.optimization,
       sideEffects: false,
+      usedExports: false,
     };
+    
+    // Ensure proper module resolution order
+    config.resolve.modules = ['node_modules', 'src'];
     
     return config;
   },

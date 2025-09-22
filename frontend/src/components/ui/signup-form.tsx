@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import { getSupabaseClient, isSupabaseConfigured } from "@/lib/supabase";
 
 export function LoginForm({
   className,
@@ -39,14 +39,22 @@ export function LoginForm({
       return;
     }
     
-    try {
-      await supabase!.from("waitlist").insert([{ email }]);
-      setJoined(true);
-      await fetchWaitlistCount(); // <-- Refresh the count immediately!
-    } catch (error) {
-      console.error('Error submitting email:', error);
-      alert('Failed to join waitlist. Please try again or contact us directly.');
-    }
+      try {
+        const supabaseClient = getSupabaseClient();
+        if (supabaseClient) {
+          const { error } = await (supabaseClient as any).from("waitlist").insert([{ email }]);
+          if (error) {
+            throw error;
+          }
+          setJoined(true);
+          await fetchWaitlistCount(); // <-- Refresh the count immediately!
+        } else {
+          throw new Error('Supabase client not available');
+        }
+      } catch (error) {
+        console.error('Error submitting email:', error);
+        alert('Failed to join waitlist. Please try again or contact us directly.');
+      }
     
     setLoading(false);
   };
