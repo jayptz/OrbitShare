@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import { FaGithub } from "react-icons/fa6";
 import { GiConcentricCrescents } from "react-icons/gi";
+import { IoDownloadOutline } from "react-icons/io5";
+import { IoMailSharp } from "react-icons/io5";
+
+
 
 
 export default function Navbar() {
@@ -11,7 +15,7 @@ export default function Navbar() {
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center space-x-2 text-xl font-bold text-white hover:text-purple-700 transition-colors">
             <GiConcentricCrescents className="h-8 w-8" />
-            Orbit<div className="text-purple-600">Share</div>
+            Orbit<span className="text-purple-600">Share</span>
           </Link>
         </div>
 
@@ -19,24 +23,9 @@ export default function Navbar() {
         <div className="hidden md:block">
           <div className="flex items-center space-x-8">
             
-            <Link href="/documentation" className="text-white hover:text-purple-700 px-3 py-2 text-sm font-medium transition-colors">
-              Documentation
+            <Link href="mailto:jaypt2105@gmail.com" className="text-white hover:text-purple-700 px-3 py-2 text-xl font-medium transition-colors">
+            <IoMailSharp />
             </Link>
-            
-            <Link href="/about" className="text-white hover:text-purple-700 px-3 py-2 text-sm font-medium transition-colors">
-              About
-            </Link>
-            
-            <Link href="/contact" className="text-white hover:text-purple-700 px-3 py-2 text-sm font-medium transition-colors">
-              Contact
-            </Link>
-            
-            <Link 
-            href="https://github.com/jayptz/Orbitshare" 
-            className="text-gray-400 px-4 py-2 rounded-md text-sm font-medium transition-colors hover:text-purple-500"
-          >
-            Download
-          </Link>
 
           <Link href="https://github.com/jayptz/Orbitshare" className="text-white hover:text-purple-700 px-3 py-2 text-sm font-medium transition-colors" >
             <FaGithub className="h-5 w-5" />
