@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['react-icons', 'lucide-react'],
   },
   
-  // Webpack configuration for OGL
+  // Webpack configuration for OGL and TDZ prevention
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -22,6 +22,12 @@ const nextConfig: NextConfig = {
       ...config.resolve.fallback,
       fs: false,
       path: false,
+    };
+    
+    // Prevent TDZ issues by ensuring proper module loading order
+    config.optimization = {
+      ...config.optimization,
+      sideEffects: false,
     };
     
     return config;
