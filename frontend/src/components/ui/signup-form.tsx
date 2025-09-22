@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { supabase } from "@/lib/supabase";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
 export function LoginForm({
   className,
@@ -32,14 +32,20 @@ export function LoginForm({
     e.preventDefault();
     setLoading(true);
     
+    if (!isSupabaseConfigured()) {
+      // Show user-friendly message when Supabase is not configured
+      alert('Signup is temporarily unavailable. Please try again later or contact us directly.');
+      setLoading(false);
+      return;
+    }
+    
     try {
-      await supabase.from("waitlist").insert([{ email }]);
+      await supabase!.from("waitlist").insert([{ email }]);
       setJoined(true);
       await fetchWaitlistCount(); // <-- Refresh the count immediately!
     } catch (error) {
       console.error('Error submitting email:', error);
-      // Still show success to user even if backend fails
-      setJoined(true);
+      alert('Failed to join waitlist. Please try again or contact us directly.');
     }
     
     setLoading(false);
