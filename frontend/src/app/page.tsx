@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import Navbar from "../components/Navbar";
 import { TypingAnimation } from "@/components/magicui/typing-animation";
 import { ShimmerButton } from "@/components/ui/shimmer-button";

@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
 // Use function declarations to avoid TDZ issues
 function getSupabaseConfig() {
@@ -26,7 +26,7 @@ export function createSupabaseClient() {
 }
 
 // Lazy initialization to prevent TDZ
-let _supabaseClient: any = null
+let _supabaseClient: SupabaseClient | null = null
 
 export function getSupabaseClient() {
   if (_supabaseClient === null) {

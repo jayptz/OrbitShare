@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getSupabaseClient, isSupabaseConfigured } from '@/lib/supabase'
+import { SupabaseClient } from '@supabase/supabase-js'
 
 export async function GET() {
   try {
@@ -13,7 +14,7 @@ export async function GET() {
       return NextResponse.json({ waitlistCount: 0 })
     }
 
-    const { count, error } = await (supabaseClient as any)
+    const { count, error } = await (supabaseClient as SupabaseClient)
       .from('waitlist')
       .select('*', { count: 'exact', head: true })
 
