@@ -1,16 +1,19 @@
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import Navbar from "../components/Navbar";
 import { TypingAnimation } from "@/components/magicui/typing-animation";
-import Galaxy from "@/components/Galaxy";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
+
+// Use the wrapper component for better error handling
+import GalaxyWrapper from "@/components/GalaxyWrapper";
 
 export default function Home() {
   return (
     <div className="font-sans min-h-screen bg-black relative">
       {/* Galaxy Background */}
       <div className="absolute inset-0 w-full h-full">
-        <Galaxy 
+        <GalaxyWrapper 
           hueShift={280}           // Purple/blue hue
           saturation={1}         // Slightly colorful
           glowIntensity={0.2}      // Brighter glow

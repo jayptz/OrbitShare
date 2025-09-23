@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
@@ -216,10 +217,7 @@ export default function Galaxy({
   const smoothMouseActive = useRef(0.0);
 
   useEffect(() => {
-    if (!ctnDom.current || typeof window === 'undefined') return;
-    
-    // Additional safeguard to prevent TDZ issues
-    if (typeof document === 'undefined') return;
+    if (!ctnDom.current) return;
     const ctn = ctnDom.current;
     const renderer = new Renderer({
       alpha: transparent,
@@ -234,6 +232,8 @@ export default function Galaxy({
     } else {
       gl.clearColor(0, 0, 0, 1);
     }
+
+    let program: Program;
 
     function resize() {
       const scale = 1;
@@ -250,7 +250,7 @@ export default function Galaxy({
     resize();
 
     const geometry = new Triangle(gl);
-    const program = new Program(gl, {
+    program = new Program(gl, {
       vertex: vertexShader,
       fragment: fragmentShader,
       uniforms: {
