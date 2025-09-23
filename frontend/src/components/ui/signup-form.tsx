@@ -119,8 +119,8 @@ export function LoginForm({
             </span>
             <span className="text-gray-400 font-medium text-xs sm:text-sm">
               {waitlistCount === null
-                ? "20"
-                : waitlistCount.toLocaleString()} users have joined the waitlist
+                ? "20 people"
+                : `${waitlistCount.toLocaleString()} people`} have joined the waitlist
             </span>
           </div>
         </div>

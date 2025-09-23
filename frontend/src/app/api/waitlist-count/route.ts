@@ -5,13 +5,13 @@ import { SupabaseClient } from '@supabase/supabase-js'
 export async function GET() {
   try {
     if (!isSupabaseConfigured()) {
-      // Return a default count when Supabase is not configured
-      return NextResponse.json({ waitlistCount: 0 })
+      // Return a default count of 20 when Supabase is not configured
+      return NextResponse.json({ waitlistCount: 20 })
     }
 
     const supabaseClient = getSupabaseClient()
     if (!supabaseClient) {
-      return NextResponse.json({ waitlistCount: 0 })
+      return NextResponse.json({ waitlistCount: 20 })
     }
 
     const { count, error } = await (supabaseClient as SupabaseClient)
@@ -20,12 +20,12 @@ export async function GET() {
 
     if (error) {
       console.error('Error fetching waitlist count:', error)
-      return NextResponse.json({ waitlistCount: 0 })
+      return NextResponse.json({ waitlistCount: 20 })
     }
 
-    return NextResponse.json({ waitlistCount: count || 0 })
+    return NextResponse.json({ waitlistCount: count || 20 })
   } catch (error) {
     console.error('Error in waitlist-count API:', error)
-    return NextResponse.json({ waitlistCount: 0 })
+    return NextResponse.json({ waitlistCount: 20 })
   }
 }
