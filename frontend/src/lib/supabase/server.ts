@@ -8,10 +8,15 @@ import { cookies } from 'next/headers'
 export async function createClient() {
   const cookieStore = await cookies()
 
+  // For server-side, we can use NEXT_PUBLIC_ variables since they're available at build time
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   
   if (!supabaseUrl || !supabaseAnonKey) {
+    console.error('Supabase environment variables are not configured:', {
+      url: !!supabaseUrl,
+      key: !!supabaseAnonKey
+    })
     throw new Error('Supabase environment variables are not configured')
   }
   

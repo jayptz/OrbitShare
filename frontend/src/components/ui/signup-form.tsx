@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { getSupabaseClient, isSupabaseConfigured } from "@/lib/supabase";
+import { SupabaseClient } from '@supabase/supabase-js';
 
 export function LoginForm({
   className,
@@ -42,7 +43,7 @@ export function LoginForm({
       try {
         const supabaseClient = getSupabaseClient();
         if (supabaseClient) {
-          const { error } = await (supabaseClient as any).from("waitlist").insert([{ email }]);
+          const { error } = await (supabaseClient as SupabaseClient).from("waitlist").insert([{ email }]);
           if (error) {
             throw error;
           }
